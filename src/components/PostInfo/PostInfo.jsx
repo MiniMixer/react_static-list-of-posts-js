@@ -22,8 +22,12 @@ export const PostInfo = ({ post, comments }) => (
 
     <hr />
 
-    {hasPostId(comments, post.id) ? (
-      <CommentList post={post.id} comments={comments} />
+    {comments ? (
+      hasPostId(comments, post.id) ? (
+        <CommentList postId={post.id} comments={comments} />
+      ) : (
+        <b data-cy="NoCommentsMessage">No comments yet</b>
+      )
     ) : (
       <b data-cy="NoCommentsMessage">No comments yet</b>
     )}
